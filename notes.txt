@@ -1,0 +1,2 @@
+-add typescript and node types
+npm i -D typescript @types/node
