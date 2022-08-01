@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/leandroftassara/backend-node-tdd-and-clean/issues"
   },
-  "homepage": "https://github.com/leandroftassara/backend-node-tdd-and-clean#readme"
+  "homepage": "https://github.com/leandroftassara/backend-node-tdd-and-clean#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.3"
+  }
 }
