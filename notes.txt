@@ -3,4 +3,3 @@ npm i -D typescript @types/node
 
 -add eslint and typescript-eslint
 https://eslint.org/
-https://typescript-eslint.io/docs/
