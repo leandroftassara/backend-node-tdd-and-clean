@@ -4,3 +4,9 @@ npm i -D typescript @types/node
 -add eslint and typescript-eslint
 https://eslint.org/
 https://github.com/standard/eslint-config-standard-with-typescript
+
+-add hook for commit (husky and lint-staged)
+https://typicode.github.io/husky/#/
+https://github.com/okonet/lint-staged
+obs: Version used in this project has a problem -> lint-staged run multiple times when invoked by husky
+a workaround is to use exec 1> /dev/tty in pre-commit hook before lint-staged call
