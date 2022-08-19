@@ -10,3 +10,8 @@ https://typicode.github.io/husky/#/
 https://github.com/okonet/lint-staged
 obs: Version used in this project has a problem -> lint-staged run multiple times when invoked by husky
 a workaround is to use exec 1> /dev/tty in pre-commit hook before lint-staged call
+
+-add jest
+npm i -D jest @types/jest ts-jest
+
+-add prettier?
