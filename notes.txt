@@ -15,3 +15,5 @@ a workaround is to use exec 1> /dev/tty in pre-commit hook before lint-staged ca
 npm i -D jest @types/jest ts-jest
 
 -add prettier?
+
+-commit linter not working
