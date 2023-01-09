@@ -6,7 +6,11 @@ import {
   EmailValidator,
   AddAccount
 } from './signup-protocols'
-import { badRequest, serverError } from '../../helpers/http-helper'
+import {
+  badRequest,
+  serverError,
+  successRequest
+} from '../../helpers/http-helper'
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
@@ -44,7 +48,7 @@ export class SignUpController implements Controller {
 
       const account = this.addAccount.execute({ name, email, password })
 
-      return { statusCode: 200, body: account }
+      return successRequest(account)
     } catch (error) {
       return serverError()
     }
