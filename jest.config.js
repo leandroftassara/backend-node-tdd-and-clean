@@ -19,5 +19,7 @@ module.exports = {
   testEnvironment: 'node',
 
   // A map from regular expressions to paths to transformers
-  transform: { '.+\\.ts$': 'ts-jest' }
+  transform: { '.+\\.ts$': 'ts-jest' },
+
+  preset: '@shelf/jest-mongodb'
 }
