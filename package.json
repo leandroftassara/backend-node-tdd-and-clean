@@ -23,6 +23,11 @@
     "url": "https://github.com/leandroftassara/backend-node-tdd-and-clean/issues"
   },
   "homepage": "https://github.com/leandroftassara/backend-node-tdd-and-clean#readme",
+  "config": {
+    "mongodbMemoryServer": {
+      "version": "8.11.0"
+    }
+  },
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.4",
     "@types/bcrypt": "^5.0.0",
