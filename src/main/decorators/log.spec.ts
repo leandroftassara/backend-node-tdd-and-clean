@@ -1,7 +1,7 @@
 import {
   serverError,
   successRequest
-} from '../../presentation/helpers/http-helper'
+} from '../../presentation/helpers/http/http-helper'
 import {
   Controller,
   HttpRequest,
