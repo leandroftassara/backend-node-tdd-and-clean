@@ -1,17 +1,13 @@
-import {
-  Controller,
-  HttpRequest,
-  HttpResponse
-} from '../../../presentation/protocols'
-import { Request, RequestHandler, Response } from 'express'
+import { Controller, HttpRequest } from '../../../presentation/protocols'
+import { Request, Response } from 'express'
 
-export const adaptRoute = (controller: Controller): RequestHandler => {
+export const adaptRoute = (controller: Controller) => {
   return async (req: Request, res: Response) => {
     const httpRequest: HttpRequest = {
       body: req.body
     }
 
-    const httpResponse: HttpResponse = await controller.handle(httpRequest)
+    const httpResponse = await controller.handle(httpRequest)
 
     if (httpResponse.statusCode === 200) {
       res.status(httpResponse.statusCode).json(httpResponse.body)
