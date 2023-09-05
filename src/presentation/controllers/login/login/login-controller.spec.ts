@@ -4,8 +4,8 @@ import {
   serverError,
   successRequest,
   unauthorized
-} from '../../helpers/http/http-helper'
-import { MissingParamError } from '../../errors'
+} from '../../../helpers/http/http-helper'
+import { MissingParamError } from '../../../errors'
 import {
   HttpRequest,
   Authentication,
@@ -89,9 +89,7 @@ describe('Login Controller', () => {
 
     jest
       .spyOn(authenticationStub, 'auth')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
 
     const httpResponse = await sut.handle(makeFakeRequest())
 
@@ -121,9 +119,7 @@ describe('Login Controller', () => {
   test('Should return 400 if Validation returns an error', async () => {
     const { sut, validationStub } = makeSut()
 
-    jest
-      .spyOn(validationStub, 'validate')
-      .mockReturnValueOnce(new MissingParamError('any'))
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any'))
 
     const httpResponse = await sut.handle(makeFakeRequest())
 

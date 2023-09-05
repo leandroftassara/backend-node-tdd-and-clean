@@ -1,5 +1,5 @@
 import { SignUpController } from './signup-controller'
-import { EmailInUseError, MissingParamError, ServerError } from '../../errors'
+import { EmailInUseError, MissingParamError, ServerError } from '../../../errors'
 import {
   AddAccount,
   AddAccountModel,
@@ -14,7 +14,7 @@ import {
   serverError,
   badRequest,
   forbidden
-} from '../../helpers/http/http-helper'
+} from '../../../helpers/http/http-helper'
 
 interface SutTypes {
   sut: SignUpController
@@ -75,11 +75,7 @@ const makeSut = (): SutTypes => {
   const addAccountStub = makeAddAccount()
   const validationStub = makeValidation()
   const authenticationStub = makeAuthentication()
-  const sut = new SignUpController(
-    addAccountStub,
-    validationStub,
-    authenticationStub
-  )
+  const sut = new SignUpController(addAccountStub, validationStub, authenticationStub)
 
   return { sut, addAccountStub, validationStub, authenticationStub }
 }
@@ -146,9 +142,7 @@ describe('SignUpController', () => {
   test('Should return 400 if Validation returns an error', async () => {
     const { sut, validationStub } = makeSut()
 
-    jest
-      .spyOn(validationStub, 'validate')
-      .mockReturnValueOnce(new MissingParamError('any'))
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any'))
 
     const httpResponse = await sut.handle(makeFakeRequest())
 
@@ -173,9 +167,7 @@ describe('SignUpController', () => {
 
     jest
       .spyOn(authenticationStub, 'auth')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+      .mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
 
     const httpResponse = await sut.handle(makeFakeRequest())
 
