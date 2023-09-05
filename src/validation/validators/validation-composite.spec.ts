@@ -1,4 +1,4 @@
-import { Validation } from '../../protocols/validation'
+import { Validation } from '../../presentation/protocols'
 import { ValidationComposite } from './validation-composite'
 
 interface SutTypes {
@@ -39,9 +39,7 @@ describe('Validation Composite', () => {
     const { sut, validationStubs } = makeSut()
 
     jest.spyOn(validationStubs[0], 'validate').mockReturnValueOnce(new Error())
-    jest
-      .spyOn(validationStubs[1], 'validate')
-      .mockReturnValueOnce(new Error('any_error'))
+    jest.spyOn(validationStubs[1], 'validate').mockReturnValueOnce(new Error('any_error'))
 
     const error = sut.validate({})
 
